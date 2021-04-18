@@ -1,16 +1,20 @@
 import React from "react";
 import "./CircleSelector.css";
 
-const CircleSelector = (props) => {
+const CircleSelector = ({
+  circleNum,
+  selectedCircleIdx,
+  handleCircleSelection,
+}) => {
   return (
     <div className="CircleSelector">
-      {props.circleNum.map((circle, idx) => (
+      {circleNum.map((circle, idx) => (
         <button
-          className={props.selectedCircleIdx === idx ? "selected" : "color"}
+          className={selectedCircleIdx === idx ? "selected" : "color"}
           key={circle}
-          onClick={() => props.handleCircleSelection(idx)}
+          onClick={() => handleCircleSelection(idx)}
         >
-          {props.selectedCircleIdx === idx
+          {selectedCircleIdx === idx
             ? `Circle ${idx + 1} Selected`
             : `Select Circle ${idx + 1}`}
         </button>
