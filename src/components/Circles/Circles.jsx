@@ -1,14 +1,14 @@
 import React from "react";
 import "./Circles.css";
 
-const Circles = (props) => {
+const Circles = ({ selectedCircleIdx, circleNum, handleCircleSelection }) => {
   return (
     <div className="Circles">
-      {props.circleNum.map((circle, idx) => (
+      {circleNum.map((circle, idx) => (
         <div
-          className={props.selectedCircleIdx === idx ? "selected" : "color"}
+          className={selectedCircleIdx === idx ? "selected" : "color"}
           key={circle}
-          onClick={() => props.handleCircleSelection(idx)}
+          onClick={() => handleCircleSelection(idx)}
         >
           {idx + 1}
         </div>
